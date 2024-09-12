@@ -1,0 +1,35 @@
+{
+    "/emplogin": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [
+                {
+                    "in": "body",
+                    "name": "credentials",
+                    "description": "userName&password",
+                    "required": false
+                }
+            ],
+            "responses": {},
+            "tags": [
+                "emplogin"
+            ]
+        }
+    },
+    "/empWrongUser": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "emplogin"
+            ]
+        }
+    }
+}

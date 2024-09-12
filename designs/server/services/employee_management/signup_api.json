@@ -1,0 +1,361 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "type": "tab",
+        "createdDate": "2024-08-30T06:02:07.651Z",
+        "label": "signup_api",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "signup_api",
+        "relativeParentPath": "employee_management"
+    },
+    {
+        "id": "sd_nJWg37O8nxxeZav3",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "signup",
+        "path": "user/register",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 120,
+        "wires": [
+            [
+                "sd_HNvoEEkL7nCatYRV"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "signup_api",
+        "functionName": "sd_nJWg37O8nxxeZav3"
+    },
+    {
+        "id": "sd_CXLkTSjUSoeNIKaD",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "resultMapping",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.resultMapping",
+            "send": "bh.local.resultMapping"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_zQTKWj4IorFT4ekJ",
+                    "valid": true
+                }
+            ],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_CXLkTSjUSoeNIKaD",
+        "category": "HTTP",
+        "x": 485,
+        "y": 60,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    },
+    {
+        "id": "sd_HNvoEEkL7nCatYRV",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+            "type": "tab",
+            "createdDate": "2024-08-30T06:02:17.559Z",
+            "label": "signup_service",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_SRXtrg8trjsfDx2M",
+            "flowName": "userService"
+        },
+        "inputVariables": [
+            {
+                "key": "userName",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.userName"
+            },
+            {
+                "key": "newpassword",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.newpassword"
+            },
+            {
+                "key": "confirmpasword",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.confirmpasword"
+            },
+            {
+                "key": "isError",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "isError",
+                "valueType": "bh.local",
+                "value": "isError",
+                "mapVarName": "isError",
+                "localVar": "bh.local.isError"
+            },
+            {
+                "mapVarType": "local",
+                "key": "outputMapping",
+                "valueType": "bh.local",
+                "value": "outputMapping",
+                "mapVarName": "outputMapping",
+                "localVar": "bh.local.outputMapping"
+            }
+        ],
+        "callService": "./signup_service",
+        "startName": "userService",
+        "inputParams": [
+            "bh.input.body.userName",
+            "bh.input.body.newpassword",
+            "bh.input.body.confirmpasword",
+            null
+        ],
+        "accept_bh": false,
+        "functionName": "sd_HNvoEEkL7nCatYRV",
+        "category": "General",
+        "x": 205,
+        "y": 120,
+        "wires": [
+            [
+                "sd_y4xNh3o9UA7f5wwk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    },
+    {
+        "id": "sd_y4xNh3o9UA7f5wwk",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.resultMapping={\n    code:200,\n    data: bh.local.outputMapping\n}",
+        "functionName": "sd_y4xNh3o9UA7f5wwk",
+        "category": "Function",
+        "x": 285,
+        "y": 120,
+        "wires": [
+            [
+                "sd_hhx3LmYVqIxQVJeL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    },
+    {
+        "id": "sd_hhx3LmYVqIxQVJeL",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "outputMapping",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.outputMapping",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "eq",
+                "v": "Already Exist",
+                "vt": "str",
+                "gv": "\"Already Exist\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_hhx3LmYVqIxQVJeL",
+        "category": "Function",
+        "x": 385,
+        "y": 120,
+        "wires": [
+            [
+                "sd_CXLkTSjUSoeNIKaD"
+            ],
+            [
+                "sd_RSKYDP1XvubmvsnQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    },
+    {
+        "id": "sd_oUynoy711Z9PrKQR",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "resultMapping",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 500,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 500,
+            "obj": "bh.local.resultMapping",
+            "send": "bh.local.resultMapping"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [
+                {
+                    "key": "application/json",
+                    "rowId": "sd_zQTKWj4IorFT4ekJ",
+                    "valid": true
+                }
+            ],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_oUynoy711Z9PrKQR",
+        "category": "HTTP",
+        "x": 545,
+        "y": 180,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    },
+    {
+        "id": "sd_RSKYDP1XvubmvsnQ",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_TnUnoK1LYch8f3UJ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.resultMapping=\"This username is taken. Try another\";",
+        "functionName": "sd_RSKYDP1XvubmvsnQ",
+        "category": "Function",
+        "x": 465,
+        "y": 180,
+        "wires": [
+            [
+                "sd_oUynoy711Z9PrKQR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_api",
+        "generated": true
+    }
+]

@@ -1,0 +1,434 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "type": "tab",
+        "createdDate": "2024-08-30T06:02:17.559Z",
+        "label": "signup_service",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "signup_service",
+        "relativeParentPath": "employee_management"
+    },
+    {
+        "id": "sd_SRXtrg8trjsfDx2M",
+        "type": "Start",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "userService",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "userName",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "newpassword",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "confirmpasword",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "isError",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "outputMapping",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "userService",
+        "category": "General",
+        "x": 45,
+        "y": 160,
+        "wires": [
+            [
+                "sd_VFIEV9eemMaHA2T3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "signup_service"
+    },
+    {
+        "id": "sd_VFIEV9eemMaHA2T3",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\n\nbh.input.credentials={\n    userName:bh.input.userName,\n    newpassword:bh.input.newpassword,\n    confirmpasword:bh.input.confirmpasword\n}\n\n\n\nbh.input.checkcondition= {\n    userName : bh.input.userName,\n}\n\n",
+        "functionName": "sd_VFIEV9eemMaHA2T3",
+        "category": "Function",
+        "x": 125,
+        "y": 160,
+        "wires": [
+            [
+                "sd_ubYUjpfga7avlVuF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_3deJtmpkdPX4P7uS",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.outputMapping=bh.local.empResult\n\nconsole.log(\"outputmapping\",bh.local.outputMapping)",
+        "functionName": "sd_3deJtmpkdPX4P7uS",
+        "category": "Function",
+        "x": 605,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_iDXwbaFhYqO3ILHE",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.isError=true;",
+        "functionName": "sd_iDXwbaFhYqO3ILHE",
+        "category": "Function",
+        "x": 325,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_c9EeEzG0cIJx4mNn",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_SRXtrg8trjsfDx2M",
+            "sd_VFIEV9eemMaHA2T3",
+            "sd_3deJtmpkdPX4P7uS"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_c9EeEzG0cIJx4mNn",
+        "category": "General",
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "sd_iDXwbaFhYqO3ILHE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "signup_service"
+    },
+    {
+        "id": "sd_cZK5P52KzQ84cE8n",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"signuptable\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.empResult",
+        "operation": "insertOne",
+        "argumentArray": [
+            "document",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.body",
+        "fieldOrSpec": "",
+        "filter": "bh.input.credentials.userName",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "bh",
+        "update": "bh.input.empDetails",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.credentials",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_cZK5P52KzQ84cE8n",
+        "category": "Storage",
+        "x": 505,
+        "y": 240,
+        "wires": [
+            [
+                "sd_3deJtmpkdPX4P7uS"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "signuptable",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "empResult",
+                "constant": false
+            },
+            "query": {
+                "type": "bh",
+                "value": "body",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "credentials",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh.input",
+                "value": "credentials.userName",
+                "constant": false
+            },
+            "update": {
+                "type": "bh.input",
+                "value": "empDetails",
+                "constant": false
+            },
+            "replacement": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_DepPpGkk68H4fMRm",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "outputMapping",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.outputMapping",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_DepPpGkk68H4fMRm",
+        "category": "Function",
+        "x": 405,
+        "y": 160,
+        "wires": [
+            [
+                "sd_HFoklbM99Lw2aRZK"
+            ],
+            [
+                "sd_cZK5P52KzQ84cE8n"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_HFoklbM99Lw2aRZK",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.outputMapping = \"Already Exist\"",
+        "functionName": "sd_HFoklbM99Lw2aRZK",
+        "category": "Function",
+        "x": 525,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_ubYUjpfga7avlVuF",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"signuptable\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.outputMapping",
+        "operation": "find",
+        "argumentArray": [
+            "query",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.checkcondition",
+        "fieldOrSpec": "",
+        "filter": "bh.input.credentials.userName",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "bh",
+        "update": "bh.input.empDetails",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.credentials",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_ubYUjpfga7avlVuF",
+        "category": "Storage",
+        "x": 205,
+        "y": 160,
+        "wires": [
+            [
+                "sd_PPtGBmOjcI0EWxYb"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "signuptable",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "outputMapping",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "checkcondition",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "credentials",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh.input",
+                "value": "credentials.userName",
+                "constant": false
+            },
+            "update": {
+                "type": "bh.input",
+                "value": "empDetails",
+                "constant": false
+            },
+            "replacement": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    },
+    {
+        "id": "sd_PPtGBmOjcI0EWxYb",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_S67iB9b0j4vD6frR",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"result\", bh.local.outputMapping)\n\n",
+        "functionName": "sd_PPtGBmOjcI0EWxYb",
+        "category": "Function",
+        "x": 305,
+        "y": 160,
+        "wires": [
+            [
+                "sd_DepPpGkk68H4fMRm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signup_service",
+        "generated": true
+    }
+]

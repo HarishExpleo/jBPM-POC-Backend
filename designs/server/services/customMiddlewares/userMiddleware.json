@@ -1,0 +1,192 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "type": "tab",
+        "createdDate": "2024-08-27T14:51:08.051Z",
+        "label": "userMiddleware",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "userMiddleware",
+        "relativeParentPath": "customMiddlewares"
+    },
+    {
+        "id": "sd_ckyCm3OJkH0TMdRK",
+        "type": "MiddlewareStart",
+        "z": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "userMiddleware",
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 85,
+        "y": 100,
+        "wires": [
+            [
+                "sd_ctz3LlLcAhsK1FFt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "userMiddleware",
+        "functionName": "sd_ckyCm3OJkH0TMdRK"
+    },
+    {
+        "id": "sd_ItcB6xXdogzjm7RA",
+        "type": "MiddlewareEnd",
+        "z": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh",
+            "value": "",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 0,
+            "ssd_typedInputField": true
+        },
+        "responseType": "next",
+        "responseMapping": {
+            "status": 0,
+            "next": "bh"
+        },
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_ItcB6xXdogzjm7RA",
+        "category": "HTTP",
+        "x": 425,
+        "y": 60,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userMiddleware",
+        "generated": true
+    },
+    {
+        "id": "sd_ctz3LlLcAhsK1FFt",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input)\nconsole.log(\"inside user middleware\")\n\nbh.local.continue=true;",
+        "functionName": "sd_ctz3LlLcAhsK1FFt",
+        "category": "Function",
+        "x": 185,
+        "y": 100,
+        "wires": [
+            [
+                "sd_dNit30HZh7SFp3vX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userMiddleware",
+        "generated": true
+    },
+    {
+        "id": "sd_dNit30HZh7SFp3vX",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "continue",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.continue",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_dNit30HZh7SFp3vX",
+        "category": "Function",
+        "x": 285,
+        "y": 100,
+        "wires": [
+            [
+                "sd_ItcB6xXdogzjm7RA"
+            ],
+            [
+                "sd_CMiwDBPsZ35Yk2BE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userMiddleware",
+        "generated": true
+    },
+    {
+        "id": "sd_CMiwDBPsZ35Yk2BE",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_v3mVO0JaJLZqsHkw",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "literal",
+            "value": "{\"message\":\"UNAUTHORIZED\"}",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 403,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 403,
+            "obj": "{\"message\":\"UNAUTHORIZED\"}",
+            "send": "{\"message\":\"UNAUTHORIZED\"}"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_CMiwDBPsZ35Yk2BE",
+        "category": "HTTP",
+        "x": 420,
+        "y": 180,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "userMiddleware",
+        "generated": true
+    }
+]

@@ -1,0 +1,13 @@
+{
+    "displayName": "backEndApp",
+    "appName": "backendapp",
+    "description": "backEndApp",
+    "lastModified": "2024-07-28T09:50:31.204Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "apiOnly",
+    "templateName": "blank",
+    "createDate": "2024-07-28T09:50:27.525Z",
+    "analyticsId": "f3f684a3-5816-c2bf-16ec-94c77accb6ae",
+    "createdStudioVersion": "9.2.3"
+}

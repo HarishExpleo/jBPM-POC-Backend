@@ -1,0 +1,393 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "type": "tab",
+        "createdDate": "2024-09-04T05:35:52.384Z",
+        "label": "empdetails_service",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "empdetails_service",
+        "relativeParentPath": "employee_management"
+    },
+    {
+        "id": "sd_00mZzyi0KW2qU1Xr",
+        "type": "Start",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "saveEmpDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "fname",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "lname",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "dob",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "qualification",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "gender",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "address",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "phone",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "referencephone",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "identycard",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "email",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "educationCertificates",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "experienceLetter",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "passbook",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "outputMapping",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "saveEmpDetails",
+        "category": "General",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_sh5W86M40uUPxSjt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "empdetails_service"
+    },
+    {
+        "id": "sd_sh5W86M40uUPxSjt",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.empDetails={\nfname:bh.input.fname,\nlname:bh.input.lname,\nqualification:bh.input.qualification,\ndob:bh.input.dob,\ngender:bh.input.gender,\nphone:bh.input.phone,\nreferencephone:bh.input.referencephone,\naddress:bh.input.address,\nemail:bh.input.email,\npassbook:bh.input.passbook,\nidentycard:bh.input.identycard,\nexperienceLetter:bh.input.experienceLetter,\neducationCertificates:bh.input.educationCertificates\n}",
+        "functionName": "sd_sh5W86M40uUPxSjt",
+        "category": "Function",
+        "x": 170,
+        "y": 60,
+        "wires": [
+            [
+                "sd_8uSA9W0XTkg7HSaI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_service",
+        "generated": true
+    },
+    {
+        "id": "sd_8uSA9W0XTkg7HSaI",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"postEmpDetails\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.outputMapping",
+        "operation": "insertOne",
+        "argumentArray": [
+            "document",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.body",
+        "fieldOrSpec": "",
+        "filter": "",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "bh",
+        "docs": "",
+        "document": "bh.input.empDetails",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_8uSA9W0XTkg7HSaI",
+        "category": "Storage",
+        "x": 290,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "postEmpDetails",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "outputMapping",
+                "constant": false
+            },
+            "query": {
+                "type": "bh",
+                "value": "body",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "empDetails",
+                "constant": false
+            },
+            "indexes": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_service",
+        "generated": true
+    },
+    {
+        "id": "sd_gw09jBVJNy6zIKEe",
+        "type": "Start",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getEmpDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "username",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "outputMapping",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getEmpDetails",
+        "category": "General",
+        "x": 65,
+        "y": 180,
+        "wires": [
+            [
+                "sd_aFfGHVMMKXiVrVVB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "empdetails_service"
+    },
+    {
+        "id": "sd_cKmOcERVolNHKFhD",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"postEmpDetails\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.outputMapping",
+        "operation": "find",
+        "argumentArray": [
+            "query",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.body",
+        "fieldOrSpec": "",
+        "filter": "",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.empDetails",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_cKmOcERVolNHKFhD",
+        "category": "Storage",
+        "x": 265,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "postEmpDetails",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "outputMapping",
+                "constant": false
+            },
+            "query": {
+                "type": "bh",
+                "value": "body",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "empDetails",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_service",
+        "generated": true
+    },
+    {
+        "id": "sd_aFfGHVMMKXiVrVVB",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.data = {\n    userName:\"Hari\"\n}",
+        "functionName": "sd_aFfGHVMMKXiVrVVB",
+        "category": "Function",
+        "x": 165,
+        "y": 180,
+        "wires": [
+            [
+                "sd_cKmOcERVolNHKFhD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_service",
+        "generated": true
+    }
+]

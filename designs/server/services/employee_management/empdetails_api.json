@@ -1,0 +1,526 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "type": "tab",
+        "createdDate": "2024-09-04T04:10:28.212Z",
+        "label": "empdetails_api",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "empdetails_api",
+        "relativeParentPath": "employee_management"
+    },
+    {
+        "id": "sd_VrVvg9Ne1r08PRgE",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "saveEmpdetails",
+        "path": "empDetails/save",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "sd_QFgs2Hawl9M5ijzi"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "empdetails_api",
+        "functionName": "sd_VrVvg9Ne1r08PRgE",
+        "generated": false
+    },
+    {
+        "id": "sd_YPGy2vG0YqNfWPW0",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "resultMapping",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.resultMapping",
+            "send": "bh.local.resultMapping"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_YPGy2vG0YqNfWPW0",
+        "category": "HTTP",
+        "x": 445,
+        "y": 80,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    },
+    {
+        "id": "sd_6zGOHPmWgTg95wbi",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+            "type": "tab",
+            "createdDate": "2024-09-04T05:35:52.384Z",
+            "label": "empdetails_service",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_00mZzyi0KW2qU1Xr",
+            "flowName": "saveEmpDetails"
+        },
+        "inputVariables": [
+            {
+                "key": "fname",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.fname"
+            },
+            {
+                "key": "lname",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.lname"
+            },
+            {
+                "key": "dob",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.dob"
+            },
+            {
+                "key": "qualification",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.qualification"
+            },
+            {
+                "key": "gender",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.gender"
+            },
+            {
+                "key": "address",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.address"
+            },
+            {
+                "key": "phone",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.phone"
+            },
+            {
+                "key": "referencephone",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.referencephone"
+            },
+            {
+                "key": "identycard",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.identycard"
+            },
+            {
+                "key": "email",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.email"
+            },
+            {
+                "key": "educationCertificates",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.educationCertificates"
+            },
+            {
+                "key": "experienceLetter",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.experienceLetter"
+            },
+            {
+                "key": "passbook",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body.passbook"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "outputMapping",
+                "valueType": "bh.local",
+                "value": "outputMapping",
+                "mapVarName": "outputMapping",
+                "localVar": "bh.local.outputMapping"
+            }
+        ],
+        "callService": "./empdetails_service",
+        "startName": "saveEmpDetails",
+        "inputParams": [
+            "bh.input.body.fname",
+            "bh.input.body.lname",
+            "bh.input.body.dob",
+            "bh.input.body.qualification",
+            "bh.input.body.gender",
+            "bh.input.body.address",
+            "bh.input.body.phone",
+            "bh.input.body.referencephone",
+            "bh.input.body.identycard",
+            "bh.input.body.email",
+            "bh.input.body.educationCertificates",
+            "bh.input.body.experienceLetter",
+            "bh.input.body.passbook"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_6zGOHPmWgTg95wbi",
+        "category": "General",
+        "x": 265,
+        "y": 80,
+        "wires": [
+            [
+                "sd_CCCfoipyZpaUjzEf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "empdetails_api"
+    },
+    {
+        "id": "sd_QFgs2Hawl9M5ijzi",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.saveEmpDetails={\nfname:bh.input.body.fname,\nlname:bh.input.body.lname,\nqualification:bh.input.body.qualification,\ndob:bh.input.body.dob,\ngender:bh.input.body.gender,\nphone:bh.input.body.phone,\nreferencephone:bh.input.body.referencephone,\naddress:bh.input.body.address,\nemail:bh.input.body.email,\npassbook:bh.input.body.passbook,\nidentycard:bh.input.body.identycard,\nexperienceLetter:bh.input.body.experienceLetter,\neducationCertificates:bh.input.body.educationCertificates\n}",
+        "functionName": "sd_QFgs2Hawl9M5ijzi",
+        "category": "Function",
+        "x": 165,
+        "y": 80,
+        "wires": [
+            [
+                "sd_6zGOHPmWgTg95wbi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    },
+    {
+        "id": "sd_CCCfoipyZpaUjzEf",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.resultMapping={\n    code:200,\n    data: bh.local.outputMapping\n}",
+        "functionName": "sd_CCCfoipyZpaUjzEf",
+        "category": "Function",
+        "x": 345,
+        "y": 80,
+        "wires": [
+            [
+                "sd_YPGy2vG0YqNfWPW0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    },
+    {
+        "id": "sd_oYpmHYlxM1aKzey4",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "getEmpdetails",
+        "path": "get/empDetails",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 89,
+        "y": 204.8020782470703,
+        "wires": [
+            [
+                "sd_7IbgrLxpcQX83KRn"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "empdetails_api",
+        "functionName": "sd_oYpmHYlxM1aKzey4",
+        "generated": false
+    },
+    {
+        "id": "sd_ssCfU4wdhwpx0AS6",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "resultMapping",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.resultMapping",
+            "send": "bh.local.resultMapping"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_ssCfU4wdhwpx0AS6",
+        "category": "HTTP",
+        "x": 454,
+        "y": 204.8020782470703,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    },
+    {
+        "id": "sd_tpr5PDlZsxr4s28i",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_lN8kCZZyfWH1xO2N",
+            "type": "tab",
+            "createdDate": "2024-09-04T05:35:52.384Z",
+            "label": "empdetails_service",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_gw09jBVJNy6zIKEe",
+            "flowName": "getEmpDetails"
+        },
+        "inputVariables": [
+            {
+                "key": "username",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "body"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "outputMapping",
+                "valueType": "bh.local",
+                "value": "outputMapping",
+                "mapVarName": "outputMapping",
+                "localVar": "bh.local.outputMapping"
+            }
+        ],
+        "callService": "./empdetails_service",
+        "startName": "getEmpDetails",
+        "inputParams": [
+            "bh.input.body"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_tpr5PDlZsxr4s28i",
+        "category": "General",
+        "x": 274,
+        "y": 204.8020782470703,
+        "wires": [
+            [
+                "sd_0XyklRNkGYm3fxnj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "empdetails_api"
+    },
+    {
+        "id": "sd_7IbgrLxpcQX83KRn",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// bh.local.saveEmpDetails={\n// fname:bh.input.body.fname,\n// lname:bh.input.body.lname,\n// qualification:bh.input.body.qualification,\n// dob:bh.input.body.dob,\n// gender:bh.input.body.gender,\n// phone:bh.input.body.phone,\n// referencephone:bh.input.body.referencephone,\n// address:bh.input.body.address,\n// email:bh.input.body.email,\n// passbook:bh.input.body.passbook,\n// identycard:bh.input.body.identycard,\n// experienceLetter:bh.input.body.experienceLetter,\n// educationCertificates:bh.input.body.educationCertificates\n// }",
+        "functionName": "sd_7IbgrLxpcQX83KRn",
+        "category": "Function",
+        "x": 174,
+        "y": 204.8020782470703,
+        "wires": [
+            [
+                "sd_tpr5PDlZsxr4s28i"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    },
+    {
+        "id": "sd_0XyklRNkGYm3fxnj",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_IlIGliEjUF0028UK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.resultMapping={\n    code:200,\n    data: bh.local.outputMapping\n}",
+        "functionName": "sd_0XyklRNkGYm3fxnj",
+        "category": "Function",
+        "x": 354,
+        "y": 204.8020782470703,
+        "wires": [
+            [
+                "sd_ssCfU4wdhwpx0AS6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "empdetails_api",
+        "generated": true
+    }
+]

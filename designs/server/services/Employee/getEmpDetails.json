@@ -1,0 +1,144 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_rBvsQy6e2a4KGtyz",
+        "type": "tab",
+        "createdDate": "2024-08-29T17:59:58.752Z",
+        "label": "getEmpDetails",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "getEmpDetails",
+        "relativeParentPath": "Employee"
+    },
+    {
+        "id": "sd_M6HbjzsWs8w0d1Fp",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_rBvsQy6e2a4KGtyz",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "getEmpDetails",
+        "path": "getEmpDetails",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_tcp80zfr9Ff0daNR"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "getEmpDetails",
+        "functionName": "sd_M6HbjzsWs8w0d1Fp"
+    },
+    {
+        "id": "sd_Sa9Q9QWhkpBa9jlw",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_rBvsQy6e2a4KGtyz",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "literal",
+            "value": "{\"message\":\"employee details successfully mapped\"}",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "{\"message\":\"employee details successfully mapped\"}",
+            "send": "{\"message\":\"employee details successfully mapped\"}"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_Sa9Q9QWhkpBa9jlw",
+        "category": "HTTP",
+        "x": 265,
+        "y": 60,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "getEmpDetails",
+        "generated": true
+    },
+    {
+        "id": "sd_tcp80zfr9Ff0daNR",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_rBvsQy6e2a4KGtyz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"calling getempDetails\");",
+        "functionName": "sd_tcp80zfr9Ff0daNR",
+        "category": "Function",
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Sa9Q9QWhkpBa9jlw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "getEmpDetails",
+        "generated": true
+    }
+]

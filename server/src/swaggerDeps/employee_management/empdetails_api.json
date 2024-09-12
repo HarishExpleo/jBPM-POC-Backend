@@ -1,0 +1,28 @@
+{
+    "/empDetails/save": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "empdetails_api"
+            ]
+        }
+    },
+    "/get/empDetails": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "empdetails_api"
+            ]
+        }
+    }
+}

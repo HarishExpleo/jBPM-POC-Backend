@@ -1,0 +1,581 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "type": "tab",
+        "createdDate": "2024-09-02T06:02:51.926Z",
+        "label": "login_service",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "login_service",
+        "relativeParentPath": "employee_management"
+    },
+    {
+        "id": "sd_nqprFpNNRo7g6STB",
+        "type": "Start",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "loginservice",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "userName",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "password",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "outputMapping",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "loginservice",
+        "category": "General",
+        "x": 45,
+        "y": 160,
+        "wires": [
+            [
+                "sd_UDnOaB0KcSeFqXAq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "login_service"
+    },
+    {
+        "id": "sd_UDnOaB0KcSeFqXAq",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.logincredentials={\n  userName:bh.input.userName,\n  password:bh.input.password,\n}\n\nbh.input.userCheckstatus;\nbh.local.userNotAvailable\n\nbh.input.checkuser={\n  userName:bh.input.userName,\n  newpassword:bh.input.password,\n}",
+        "functionName": "sd_UDnOaB0KcSeFqXAq",
+        "category": "Function",
+        "x": 125,
+        "y": 160,
+        "wires": [
+            [
+                "sd_wULmTSrU1t0hViA7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_2mI1obgAvDn5iHzf",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.outputMapping=bh.local.emploginresponse",
+        "functionName": "sd_2mI1obgAvDn5iHzf",
+        "category": "Function",
+        "x": 565,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_uSvJjgKleanqq5LY",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"logintable\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.emploginresponse",
+        "operation": "insertOne",
+        "argumentArray": [
+            "document",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.body",
+        "fieldOrSpec": "",
+        "filter": "bh",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "bh",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.logincredentials",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_uSvJjgKleanqq5LY",
+        "category": "Storage",
+        "x": 485,
+        "y": 240,
+        "wires": [
+            [
+                "sd_2mI1obgAvDn5iHzf"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "logintable",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "emploginresponse",
+                "constant": false
+            },
+            "query": {
+                "type": "bh",
+                "value": "body",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "logincredentials",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "replacement": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_wULmTSrU1t0hViA7",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"signuptable\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.userCheckstatus",
+        "operation": "find",
+        "argumentArray": [
+            "query",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.checkuser",
+        "fieldOrSpec": "",
+        "filter": "bh",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "bh",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.logincredentials",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_wULmTSrU1t0hViA7",
+        "category": "Storage",
+        "x": 205,
+        "y": 160,
+        "wires": [
+            [
+                "sd_VV90wL9TP6JN8Nwl"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "signuptable",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "userCheckstatus",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "checkuser",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "logincredentials",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "replacement": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_VV90wL9TP6JN8Nwl",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"userCheckstatus\", bh.local.userCheckstatus)",
+        "functionName": "sd_VV90wL9TP6JN8Nwl",
+        "category": "Function",
+        "x": 285,
+        "y": 160,
+        "wires": [
+            [
+                "sd_k2kyHBokLYZRkE5G"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_k2kyHBokLYZRkE5G",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "userCheckstatus",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.userCheckstatus",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_k2kyHBokLYZRkE5G",
+        "category": "Function",
+        "x": 385,
+        "y": 160,
+        "wires": [
+            [
+                "sd_OoqdIggxc1Zzl7AG"
+            ],
+            [
+                "sd_ZDdolwkFDowlGRsZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_ZDdolwkFDowlGRsZ",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_X8GfjgUbWUvkJUBZ",
+        "collection": "\"logintable\"",
+        "options": "bh.web",
+        "resultMapping": "bh.local.checkloginstatus",
+        "operation": "find",
+        "argumentArray": [
+            "query",
+            "options"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.logincredentials",
+        "fieldOrSpec": "",
+        "filter": "bh",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "bh",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.logincredentials",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_ZDdolwkFDowlGRsZ",
+        "category": "Storage",
+        "x": 205,
+        "y": 280,
+        "wires": [
+            [
+                "sd_CpMSF3vCN95Cb5Z9"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "str",
+                "value": "logintable",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "web",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "checkloginstatus",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "logincredentials",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "logincredentials",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            },
+            "replacement": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_CpMSF3vCN95Cb5Z9",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"Checkloginstatus\", bh.local.checkloginstatus)",
+        "functionName": "sd_CpMSF3vCN95Cb5Z9",
+        "category": "Function",
+        "x": 285,
+        "y": 280,
+        "wires": [
+            [
+                "sd_WFb0ulQJdVf5GrsK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_WFb0ulQJdVf5GrsK",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "checkloginstatus",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.checkloginstatus",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_WFb0ulQJdVf5GrsK",
+        "category": "Function",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "sd_uSvJjgKleanqq5LY"
+            ],
+            [
+                "sd_1ljCanpVmIH2tGcj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_1ljCanpVmIH2tGcj",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"user already registered\")",
+        "functionName": "sd_1ljCanpVmIH2tGcj",
+        "category": "Function",
+        "x": 480,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_AOazDp1tSczQ5Hfc",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "userNotAvailable",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 404,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 404,
+            "obj": "bh.local.userNotAvailable",
+            "send": "bh.local.userNotAvailable"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_AOazDp1tSczQ5Hfc",
+        "category": "HTTP",
+        "x": 585,
+        "y": 120,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    },
+    {
+        "id": "sd_OoqdIggxc1Zzl7AG",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_8h7sP6xWW17scMxp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.userNotAvailable = \"Your account not exist, try to signup\"",
+        "functionName": "sd_OoqdIggxc1Zzl7AG",
+        "category": "Function",
+        "x": 485,
+        "y": 120,
+        "wires": [
+            [
+                "sd_AOazDp1tSczQ5Hfc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login_service",
+        "generated": true
+    }
+]

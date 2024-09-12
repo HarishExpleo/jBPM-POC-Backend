@@ -1,0 +1,153 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_Hn9aN6rVC83XMSDC",
+        "type": "tab",
+        "createdDate": "2024-08-28T07:27:16.284Z",
+        "label": "signupApi",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "signupApi",
+        "relativeParentPath": "Employee"
+    },
+    {
+        "id": "sd_pB9Z2T2nndKMlqph",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Hn9aN6rVC83XMSDC",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "signup",
+        "path": "signup",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [
+                {
+                    "key": "createCredentials",
+                    "desc": "userName/ createNewPassword/confirmPassword",
+                    "type": "body",
+                    "required": false,
+                    "rowId": "sd_BUX651OKQsFOh6P3",
+                    "valid": true
+                }
+            ],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 100,
+        "wires": [
+            [
+                "sd_xwWPQMiaCvwjLoUA"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "signupApi",
+        "functionName": "sd_pB9Z2T2nndKMlqph"
+    },
+    {
+        "id": "sd_xwWPQMiaCvwjLoUA",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Hn9aN6rVC83XMSDC",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"calling signup api\")",
+        "functionName": "sd_xwWPQMiaCvwjLoUA",
+        "category": "Function",
+        "x": 205,
+        "y": 100,
+        "wires": [
+            [
+                "sd_V7GL03o5dew8kHRj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signupApi",
+        "generated": true
+    },
+    {
+        "id": "sd_V7GL03o5dew8kHRj",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Hn9aN6rVC83XMSDC",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "literal",
+            "value": "{\"message\":\" successfully signup into your account\"}",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "{\"message\":\" successfully signup into your account\"}",
+            "send": "{\"message\":\" successfully signup into your account\"}"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_V7GL03o5dew8kHRj",
+        "category": "HTTP",
+        "x": 330,
+        "y": 100,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "signupApi",
+        "generated": true
+    }
+]

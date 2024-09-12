@@ -1,0 +1,17 @@
+{
+    "/user/register": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "signup_api"
+            ]
+        }
+    }
+}

@@ -1,0 +1,233 @@
+[
+    {
+        "id": "ssd_mw_ws",
+        "type": "tab",
+        "createdDate": "createdDate",
+        "label": "Middlewares",
+        "disabled": false,
+        "info": "",
+        "generateNext": true,
+        "serviceName": "Middlewares",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "ssd_global_middleware_start_id",
+        "type": "GlobalMiddlewareStart",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "inputs": 0,
+        "outputs": 1,
+        "category": "Middleware",
+        "x": 65,
+        "y": 100,
+        "wires": [
+            [
+                "sd_C9VRO0iOLqxUzNzT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "ssd_global_next_id",
+        "type": "GlobalNext",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "inputs": 1,
+        "outputs": 1,
+        "category": "Middleware",
+        "x": 585,
+        "y": 100,
+        "wires": [
+            [
+                "ssd_global_middleware_end_id"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "ssd_global_middleware_end_id",
+        "type": "GlobalMiddlewareEnd",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 0,
+        "category": "Middleware",
+        "x": 725,
+        "y": 100,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_Tp9jNbUvUZ1kJnAn",
+        "type": "CORS",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "middleware",
+        "name": "",
+        "methods": [],
+        "origin": true,
+        "editableListData": {
+            "methods": [],
+            "allowedHeaders": [],
+            "exposedHeaders": []
+        },
+        "showOriginToggleButton": true,
+        "credentials": true,
+        "maxAge": "",
+        "preflightContinue": false,
+        "optionsSuccessStatus": "",
+        "functionName": "cors",
+        "category": "Global",
+        "x": 485,
+        "y": 100,
+        "wires": [
+            [
+                "ssd_global_next_id"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_7EmxxOk703exD5hF",
+        "type": "GlobalSession",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "middleware",
+        "name": "Global Session",
+        "cookieDomain": "",
+        "cookieSecure": false,
+        "cookieExpires": "",
+        "cookieHttpOnly": false,
+        "cookieMaxAge": "15 * 24 * 60 * 60 * 1000 ",
+        "cookiePath": "",
+        "cookieSameSite": "\"lax\"",
+        "proxy": false,
+        "resave": false,
+        "rolling": false,
+        "saveUninitialized": false,
+        "secret": "\"qPXoLFLDtk\"",
+        "dbConnectionName": "",
+        "unset": "keep",
+        "db": "",
+        "store": "",
+        "functionName": "sd_7EmxxOk703exD5hF",
+        "category": "Global",
+        "x": 345,
+        "y": 100,
+        "wires": [
+            [
+                "sd_Tp9jNbUvUZ1kJnAn"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "secret": {
+                "type": "str",
+                "value": "qPXoLFLDtk"
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_C9VRO0iOLqxUzNzT",
+        "type": "ids:hrefstart",
+        "z": "ssd_mw_ws",
+        "name": "ids:hrefstart",
+        "inputs": 1,
+        "outputs": 1,
+        "category": "Service",
+        "x": 205,
+        "y": 100,
+        "wires": [
+            [
+                "sd_7EmxxOk703exD5hF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "functionName": "sd_C9VRO0iOLqxUzNzT"
+    },
+    {
+        "id": "sd_4HKbxN7d0AL4hOxF",
+        "type": "RouteMiddlewareStart",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "IDSAuthroizedAPIs",
+        "inputs": 0,
+        "outputs": 1,
+        "category": "Middleware",
+        "x": 65,
+        "y": 210,
+        "wires": [
+            [
+                "sd_ISirC5Fy6p3Du7i8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_ISirC5Fy6p3Du7i8",
+        "type": "ids:Authorize",
+        "z": "ssd_mw_ws",
+        "name": "ids:Authorize",
+        "inputs": 1,
+        "outputs": 1,
+        "category": "Service",
+        "x": 205,
+        "y": 210,
+        "wires": [
+            [
+                "sd_jK1yTPs7foxJ0sF9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "functionName": "sd_ISirC5Fy6p3Du7i8"
+    },
+    {
+        "id": "sd_jK1yTPs7foxJ0sF9",
+        "type": "Next",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "category": "Middleware",
+        "x": 345,
+        "y": 210,
+        "wires": [
+            [
+                "sd_mSMwUAx7kHUdyb5B"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_mSMwUAx7kHUdyb5B",
+        "type": "RouteMiddlewareEnd",
+        "z": "ssd_mw_ws",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 0,
+        "category": "Middleware",
+        "x": 485,
+        "y": 210,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    }
+]

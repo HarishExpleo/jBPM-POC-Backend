@@ -1,0 +1,160 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_dwyiljmWFYiRi790",
+        "type": "tab",
+        "createdDate": "2024-08-19T07:19:55.104Z",
+        "label": "searchUsers",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "searchUsers",
+        "relativeParentPath": "Users"
+    },
+    {
+        "id": "sd_n23kGBSkhQPohqZl",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_dwyiljmWFYiRi790",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "users/search/:userId",
+        "uploadpath": "",
+        "summary": "api to search users",
+        "description": "some description",
+        "method": "post",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [
+                {
+                    "key": "region",
+                    "desc": "region",
+                    "type": "query",
+                    "required": false,
+                    "rowId": "sd_2Lcs7L73H360UYWo",
+                    "valid": true
+                },
+                {
+                    "key": "filter",
+                    "desc": "filtering configuration",
+                    "type": "body",
+                    "required": false,
+                    "rowId": "sd_eiy9qeyqEoEkhBBP",
+                    "valid": true
+                }
+            ],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_VcplmdbSmdib8d48"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "searchUsers",
+        "functionName": "sd_n23kGBSkhQPohqZl"
+    },
+    {
+        "id": "sd_MMLhQD1S6vA3WI2k",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_dwyiljmWFYiRi790",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "literal",
+            "value": "{message:\"success\",data:[]}",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "{message:\"success\",data:[]}",
+            "send": "{message:\"success\",data:[]}"
+        },
+        "dataModelIsArray": false,
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_MMLhQD1S6vA3WI2k",
+        "category": "HTTP",
+        "x": 265,
+        "y": 80,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "searchUsers",
+        "generated": true
+    },
+    {
+        "id": "sd_VcplmdbSmdib8d48",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_dwyiljmWFYiRi790",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(JSON.stringify(bh.input));",
+        "functionName": "sd_VcplmdbSmdib8d48",
+        "category": "Function",
+        "x": 165,
+        "y": 80,
+        "wires": [
+            [
+                "sd_MMLhQD1S6vA3WI2k"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "searchUsers",
+        "generated": true
+    }
+]
